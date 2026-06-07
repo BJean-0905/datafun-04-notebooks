@@ -61,7 +61,7 @@ LOG: logging.Logger = get_logger("EDA", level="DEBUG")
 # Inspect or explore the dataset to determine columns needed for analysis.
 
 # CUSTOM: Data set name
-DATASET_NAME: Final[str] = "penguins_bjean"
+DATASET_NAME: Final[str] = "penguins"
 
 # CUSTOM: Grouping column (chose one categorical/non-numeric variable)
 GROUP_COL: Final[str] = "species"
