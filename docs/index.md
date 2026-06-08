@@ -54,4 +54,4 @@ Figures show most countries have similar healthcare expenses with higher life ex
 Germany and the USA are leading with the highest healthcare expense and lowest life expectancy by year,
 with that correlation only becoming more apparent over the years.
 
-![Health Expenditure vs Life Expectancy (by country)]("docs/images/Healthexp_figure2.png")
+![Health Expenditure vs Life Expectancy (by country)](Healthexp_figure2.png)
