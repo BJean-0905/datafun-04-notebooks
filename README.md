@@ -114,7 +114,7 @@ uvx pre-commit run --all-files
 uvx pre-commit run --all-files
 
 # run the module to verify the environment (.venv)
-uv run python -m datafun.app_case
+uv run python -m datafun.app_case_bjean
 
 # do chores
 uv run ruff format .
@@ -188,3 +188,5 @@ Remove unnecessary instructional comments in your final version of this README.m
 ![Provide a Useful Caption](./docs/images/Figure_2.png)
 
 ![Provide a Useful Caption](./docs/images/Figure_3.png)
+
+![Body Mass vs. Flipper Length with Linear Regression](docs/images/Figure_3.png)
