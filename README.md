@@ -189,4 +189,4 @@ Remove unnecessary instructional comments in your final version of this README.m
 
 ![Provide a Useful Caption](./docs/images/Figure_3.png)
 
-![Body Mass vs. Flipper Length with Linear Regression](docs/images/Figure_3.png)
+![Body Mass vs. Flipper Length with Linear Regression](docs/images/Figure_4.png)
