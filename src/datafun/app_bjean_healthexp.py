@@ -447,7 +447,7 @@ def make_plots(df_clean: pd.DataFrame) -> None:
     LOG.info("---- Creating Scatter Plot to see Relationships ------")
     LOG.info("----   Use clean dataframe ---------------------------")
     LOG.info("----   Set x to Spending_USD -----------------------")
-    LOG.info("----   Set y to Life Expectancy --------------------------")
+    LOG.info("----   Set y to Life_Expectancy --------------------------")
     LOG.info("----   Set the hue (color mapping) to the group column --")
 
     # Open a fresh blank canvas before a new chart
