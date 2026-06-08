@@ -502,8 +502,23 @@ def make_plots(df_clean: pd.DataFrame) -> None:
     #      plt.show() is called once at the end of make_plots()
     # plt.show()
 
+    # === Section 9. Summary and Next Steps ===
+    LOG.info("------ Creating Another Chart with Linear Regression Line ---------")
+    # Open a fresh blank canvas before a new chart
+    plt.figure()
 
-# === Section 9. Summary and Next Steps ===
+    # Use a line graph() to visualize the distribution of a numeric variable across groups
+    sns.regplot(
+        data=df_clean,
+        x="body_mass_g",
+        y="flipper_length_mm",
+        scatter_kws={"alpha": 0.6},
+        line_kws={"color": "red"},  # Set transparency for scatter points
+    )
+    plt.title("Body Mass vs. Flipper Length (with Linear Regression)")
+    plt.xlabel("Body Mass (g)")
+    plt.ylabel("Flipper Length (mm)")
+    plt.show()
 
 
 def summarize(df: pd.DataFrame, df_clean: pd.DataFrame) -> None:
