@@ -1487,3 +1487,702 @@ Life_Expectancy  0.902175      0.579430         1.000000
 2026-06-07 20:20:13 | INFO | EDA-NB | ========================
 2026-06-07 20:20:13 | INFO | EDA-NB | Executed successfully!
 2026-06-07 20:20:13 | INFO | EDA-NB | ========================
+2026-06-07 20:25:31 | INFO | EDA | === RUN START ===
+2026-06-07 20:25:31 | INFO | EDA | project=EDA
+2026-06-07 20:25:31 | INFO | EDA | repo_dir=datafun-04-notebooks
+2026-06-07 20:25:31 | INFO | EDA | python=3.14.3
+2026-06-07 20:25:31 | INFO | EDA | os=Windows 11
+2026-06-07 20:25:31 | INFO | EDA | shell=powershell
+2026-06-07 20:25:31 | INFO | EDA | cwd=.
+2026-06-07 20:25:31 | INFO | EDA | github_actions=False
+2026-06-07 20:25:31 | INFO | EDA | ========================
+2026-06-07 20:25:31 | INFO | EDA | START main()
+2026-06-07 20:25:31 | INFO | EDA | ========================
+2026-06-07 20:25:31 | INFO | EDA | --- Section 2: Load dataset: healthexp ---
+2026-06-07 20:25:31 | INFO | EDA | Loading dataset: healthexp
+2026-06-07 20:25:31 | INFO | EDA | Loaded: 274 rows, 4 columns
+2026-06-07 20:25:31 | INFO | EDA | --- Section 3: Inspect shape and basic structure ---
+2026-06-07 20:25:31 | INFO | EDA | Previewing first few rows of the dataset
+2026-06-07 20:25:31 | DEBUG | EDA | 
+   Year        Country  Spending_USD  Life_Expectancy
+0  1970        Germany       252.311             70.6
+1  1970         France       192.143             72.2
+2  1970  Great Britain       123.993             71.9
+3  1970          Japan       150.437             72.0
+4  1970            USA       326.961             70.9
+2026-06-07 20:25:31 | INFO | EDA | Column names
+2026-06-07 20:25:31 | DEBUG | EDA | ['Year', 'Country', 'Spending_USD', 'Life_Expectancy']
+2026-06-07 20:25:31 | INFO | EDA | DataFrame info (types and non-null counts)
+2026-06-07 20:25:31 | INFO | EDA | Dataset shape: 274 rows, 4 columns
+2026-06-07 20:25:31 | INFO | EDA | --- Section 4: Create Data Dictionary and Check Data Quality ---
+2026-06-07 20:25:31 | INFO | EDA | Building starter data dictionary
+2026-06-07 20:25:31 | DEBUG | EDA | 
+            column    dtype  missing_count  missing_pct
+0             Year    int64              0          0.0
+1          Country      str              0          0.0
+2     Spending_USD  float64              0          0.0
+3  Life_Expectancy  float64              0          0.0
+2026-06-07 20:25:31 | INFO | EDA | Missing values per column:
+2026-06-07 20:25:31 | INFO | EDA | 
+Year               0
+Country            0
+Spending_USD       0
+Life_Expectancy    0
+dtype: int64
+2026-06-07 20:25:31 | INFO | EDA | Checking missing values per column
+2026-06-07 20:25:31 | DEBUG | EDA | 
+Year               0
+Country            0
+Spending_USD       0
+Life_Expectancy    0
+dtype: int64
+2026-06-07 20:25:31 | INFO | EDA | Duplicate rows detected: 0
+2026-06-07 20:25:31 | INFO | EDA | Call describe() for numeric columns
+2026-06-07 20:25:31 | DEBUG | EDA | 
+              Year  Spending_USD  Life_Expectancy
+count   274.000000    274.000000       274.000000
+mean   1996.992701   2789.338905        77.909489
+std      14.180933   2194.939785         3.276263
+min    1970.000000    123.993000        70.600000
+25%    1985.250000   1038.357000        75.525000
+50%    1998.000000   2295.578000        78.100000
+75%    2009.000000   4055.610000        80.575000
+max    2020.000000  11859.179000        84.700000
+
+2026-06-07 20:25:31 | INFO | EDA | --- Section 5: Create a cleaned view for EDA ---
+2026-06-07 20:25:31 | INFO | EDA | Creating cleaned view for EDA (dropping rows with key missing values)
+2026-06-07 20:25:31 | DEBUG | EDA | Columns required to be non-missing: ['Year', 'Spending_USD', 'Life_Expectancy', 'Country']
+2026-06-07 20:25:31 | INFO | EDA | Original rows: 274
+2026-06-07 20:25:31 | INFO | EDA | Clean rows:    274
+2026-06-07 20:25:31 | INFO | EDA | Rows dropped:  0
+2026-06-07 20:25:31 | INFO | EDA | --- Section 6: Descriptive statistics for numeric columns ---
+2026-06-07 20:25:31 | INFO | EDA | --------------- Manual statistics ---------------
+2026-06-07 20:25:31 | DEBUG | EDA | Health Expenditure Statistics (using numpy):
+2026-06-07 20:25:31 | DEBUG | EDA |   Mean: 2789.34 USD
+2026-06-07 20:25:31 | DEBUG | EDA |   Std Dev: 2190.93 USD
+2026-06-07 20:25:31 | DEBUG | EDA |   Min: 123.99 USD
+2026-06-07 20:25:31 | DEBUG | EDA |   Max: 11859.18 USD
+2026-06-07 20:25:31 | DEBUG | EDA |   Range: 11735.19 USD
+2026-06-07 20:25:31 | INFO | EDA | --------------- Using pandas describe() method ---------------
+2026-06-07 20:25:31 | INFO | EDA | Computing overall descriptive statistics
+2026-06-07 20:25:31 | DEBUG | EDA | 
+                 count         mean          std       min       25%       50%       75%        max
+Year             274.0  1996.992701    14.180933  1970.000  1985.250  1998.000  2009.000   2020.000
+Spending_USD     274.0  2789.338905  2194.939785   123.993  1038.357  2295.578  4055.610  11859.179
+Life_Expectancy  274.0    77.909489     3.276263    70.600    75.525    78.100    80.575     84.700
+2026-06-07 20:25:31 | INFO | EDA | --------------- Using pandas groupby() and agg() ---------------
+2026-06-07 20:25:31 | INFO | EDA | Computing descriptive statistics by group
+2026-06-07 20:25:31 | DEBUG | EDA | 
+               Year                                     Spending_USD                                                \
+              count         mean        std   min   max        count         mean          std      min        max   
+Country                                                                                                              
+Canada           44  1998.318182  13.183451  1971  2020           44  2685.778341  1526.252453  313.391   5828.324   
+France           35  2001.857143  12.466763  1970  2020           35  3045.145057  1468.282187  192.143   5468.418   
+Germany          50  1995.080000  15.005904  1970  2020           50  2667.280200  1873.356162  252.311   6938.983   
+Great Britain    43  1998.627907  13.273718  1970  2020           43  2034.192465  1433.797586  123.993   5018.700   
+Japan            51  1995.000000  14.866069  1970  2020           51  1860.257902  1467.225806  150.437   4665.641   
+USA              51  1995.000000  14.866069  1970  2020           51  4388.570529  3386.309322  326.961  11859.179   
+
+              Life_Expectancy                                   
+                        count       mean       std   min   max  
+Country                                                         
+Canada                     44  78.706818  2.502222  72.8  82.2  
+France                     35  79.565714  2.862120  72.2  82.9  
+Germany                    50  76.726000  3.473915  70.6  81.3  
+Great Britain              43  77.620930  2.827548  71.9  81.4  
+Japan                      51  79.554902  3.547242  72.0  84.7  
+USA                        51  75.843137  2.336258  70.9  78.9  
+2026-06-07 20:25:31 | INFO | EDA | 
+Stacked view - easier to read in logs:
+2026-06-07 20:25:31 | DEBUG | EDA | 
+                               count         mean          std       min        max
+Country                                                                            
+Canada        Year                44  1998.318182    13.183451  1971.000   2020.000
+              Spending_USD        44  2685.778341  1526.252453   313.391   5828.324
+              Life_Expectancy     44    78.706818     2.502222    72.800     82.200
+France        Year                35  2001.857143    12.466763  1970.000   2020.000
+              Spending_USD        35  3045.145057  1468.282187   192.143   5468.418
+              Life_Expectancy     35    79.565714     2.862120    72.200     82.900
+Germany       Year                50  1995.080000    15.005904  1970.000   2020.000
+              Spending_USD        50  2667.280200  1873.356162   252.311   6938.983
+              Life_Expectancy     50    76.726000     3.473915    70.600     81.300
+Great Britain Year                43  1998.627907    13.273718  1970.000   2020.000
+              Spending_USD        43  2034.192465  1433.797586   123.993   5018.700
+              Life_Expectancy     43    77.620930     2.827548    71.900     81.400
+Japan         Year                51  1995.000000    14.866069  1970.000   2020.000
+              Spending_USD        51  1860.257902  1467.225806   150.437   4665.641
+              Life_Expectancy     51    79.554902     3.547242    72.000     84.700
+USA           Year                51  1995.000000    14.866069  1970.000   2020.000
+              Spending_USD        51  4388.570529  3386.309322   326.961  11859.179
+              Life_Expectancy     51    75.843137     2.336258    70.900     78.900
+2026-06-07 20:25:31 | INFO | EDA | --- Section 7: Correlation matrix for numeric columns ---
+2026-06-07 20:25:31 | INFO | EDA | Computing correlation matrix for numeric columns
+2026-06-07 20:25:31 | INFO | EDA | 
+Correlation matrix:
+2026-06-07 20:25:31 | DEBUG | EDA | 
+                     Year  Spending_USD  Life_Expectancy
+Year             1.000000      0.826273         0.902175
+Spending_USD     0.826273      1.000000         0.579430
+Life_Expectancy  0.902175      0.579430         1.000000
+2026-06-07 20:25:31 | INFO | EDA | ---------Visualize Correlation Matrix as a Heatmap---------------
+2026-06-07 20:25:32 | INFO | EDA | 
+CUSTOM: Update these notes and use Markdown cells to narrate and tell the story as you explore. For example:
+
+Interpretation:
+
+ - Values close to 1 (dark red) = strong positive correlation (both increase together)
+ - Values close to -1 (dark blue) = strong negative correlation (one increases, other decreases)
+ - Values close to 0 (white) = little or no linear relationship
+ - The diagonal is always 1 (each variable correlates perfectly with itself)
+
+From this heatmap, we can see that flipper_length_mm and body_mass_g show strong positive correlation (~0.87).
+
+2026-06-07 20:25:32 | INFO | EDA | --- Section 8: Charts ---
+2026-06-07 20:25:32 | INFO | EDA | ---- Creating Scatter Plot to see Relationships ------
+2026-06-07 20:25:32 | INFO | EDA | ----   Use clean dataframe ---------------------------
+2026-06-07 20:25:32 | INFO | EDA | ----   Set x to Spending_USD -----------------------
+2026-06-07 20:25:32 | INFO | EDA | ----   Set y to Life Expectancy --------------------------
+2026-06-07 20:25:32 | INFO | EDA | ----   Set the hue (color mapping) to the group column --
+2026-06-07 20:31:19 | INFO | EDA | === RUN START ===
+2026-06-07 20:31:19 | INFO | EDA | project=EDA
+2026-06-07 20:31:19 | INFO | EDA | repo_dir=datafun-04-notebooks
+2026-06-07 20:31:19 | INFO | EDA | python=3.14.3
+2026-06-07 20:31:19 | INFO | EDA | os=Windows 11
+2026-06-07 20:31:19 | INFO | EDA | shell=powershell
+2026-06-07 20:31:19 | INFO | EDA | cwd=.
+2026-06-07 20:31:19 | INFO | EDA | github_actions=False
+2026-06-07 20:31:19 | INFO | EDA | ========================
+2026-06-07 20:31:19 | INFO | EDA | START main()
+2026-06-07 20:31:19 | INFO | EDA | ========================
+2026-06-07 20:31:19 | INFO | EDA | --- Section 2: Load dataset: healthexp ---
+2026-06-07 20:31:19 | INFO | EDA | Loading dataset: healthexp
+2026-06-07 20:31:19 | INFO | EDA | Loaded: 274 rows, 4 columns
+2026-06-07 20:31:19 | INFO | EDA | --- Section 3: Inspect shape and basic structure ---
+2026-06-07 20:31:19 | INFO | EDA | Previewing first few rows of the dataset
+2026-06-07 20:31:19 | DEBUG | EDA | 
+   Year        Country  Spending_USD  Life_Expectancy
+0  1970        Germany       252.311             70.6
+1  1970         France       192.143             72.2
+2  1970  Great Britain       123.993             71.9
+3  1970          Japan       150.437             72.0
+4  1970            USA       326.961             70.9
+2026-06-07 20:31:19 | INFO | EDA | Column names
+2026-06-07 20:31:19 | DEBUG | EDA | ['Year', 'Country', 'Spending_USD', 'Life_Expectancy']
+2026-06-07 20:31:19 | INFO | EDA | DataFrame info (types and non-null counts)
+2026-06-07 20:31:19 | INFO | EDA | Dataset shape: 274 rows, 4 columns
+2026-06-07 20:31:19 | INFO | EDA | --- Section 4: Create Data Dictionary and Check Data Quality ---
+2026-06-07 20:31:19 | INFO | EDA | Building starter data dictionary
+2026-06-07 20:31:19 | DEBUG | EDA | 
+            column    dtype  missing_count  missing_pct
+0             Year    int64              0          0.0
+1          Country      str              0          0.0
+2     Spending_USD  float64              0          0.0
+3  Life_Expectancy  float64              0          0.0
+2026-06-07 20:31:19 | INFO | EDA | Missing values per column:
+2026-06-07 20:31:19 | INFO | EDA | 
+Year               0
+Country            0
+Spending_USD       0
+Life_Expectancy    0
+dtype: int64
+2026-06-07 20:31:19 | INFO | EDA | Checking missing values per column
+2026-06-07 20:31:19 | DEBUG | EDA | 
+Year               0
+Country            0
+Spending_USD       0
+Life_Expectancy    0
+dtype: int64
+2026-06-07 20:31:19 | INFO | EDA | Duplicate rows detected: 0
+2026-06-07 20:31:19 | INFO | EDA | Call describe() for numeric columns
+2026-06-07 20:31:19 | DEBUG | EDA | 
+              Year  Spending_USD  Life_Expectancy
+count   274.000000    274.000000       274.000000
+mean   1996.992701   2789.338905        77.909489
+std      14.180933   2194.939785         3.276263
+min    1970.000000    123.993000        70.600000
+25%    1985.250000   1038.357000        75.525000
+50%    1998.000000   2295.578000        78.100000
+75%    2009.000000   4055.610000        80.575000
+max    2020.000000  11859.179000        84.700000
+
+2026-06-07 20:31:19 | INFO | EDA | --- Section 5: Create a cleaned view for EDA ---
+2026-06-07 20:31:19 | INFO | EDA | Creating cleaned view for EDA (dropping rows with key missing values)
+2026-06-07 20:31:19 | DEBUG | EDA | Columns required to be non-missing: ['Year', 'Spending_USD', 'Life_Expectancy', 'Country']
+2026-06-07 20:31:19 | INFO | EDA | Original rows: 274
+2026-06-07 20:31:19 | INFO | EDA | Clean rows:    274
+2026-06-07 20:31:19 | INFO | EDA | Rows dropped:  0
+2026-06-07 20:31:19 | INFO | EDA | --- Section 6: Descriptive statistics for numeric columns ---
+2026-06-07 20:31:19 | INFO | EDA | --------------- Manual statistics ---------------
+2026-06-07 20:31:19 | DEBUG | EDA | Health Expenditure Statistics (using numpy):
+2026-06-07 20:31:19 | DEBUG | EDA |   Mean: 2789.34 USD
+2026-06-07 20:31:19 | DEBUG | EDA |   Std Dev: 2190.93 USD
+2026-06-07 20:31:19 | DEBUG | EDA |   Min: 123.99 USD
+2026-06-07 20:31:19 | DEBUG | EDA |   Max: 11859.18 USD
+2026-06-07 20:31:19 | DEBUG | EDA |   Range: 11735.19 USD
+2026-06-07 20:31:19 | INFO | EDA | --------------- Using pandas describe() method ---------------
+2026-06-07 20:31:19 | INFO | EDA | Computing overall descriptive statistics
+2026-06-07 20:31:19 | DEBUG | EDA | 
+                 count         mean          std       min       25%       50%       75%        max
+Year             274.0  1996.992701    14.180933  1970.000  1985.250  1998.000  2009.000   2020.000
+Spending_USD     274.0  2789.338905  2194.939785   123.993  1038.357  2295.578  4055.610  11859.179
+Life_Expectancy  274.0    77.909489     3.276263    70.600    75.525    78.100    80.575     84.700
+2026-06-07 20:31:19 | INFO | EDA | --------------- Using pandas groupby() and agg() ---------------
+2026-06-07 20:31:19 | INFO | EDA | Computing descriptive statistics by group
+2026-06-07 20:31:19 | DEBUG | EDA | 
+               Year                                     Spending_USD                                                \
+              count         mean        std   min   max        count         mean          std      min        max   
+Country                                                                                                              
+Canada           44  1998.318182  13.183451  1971  2020           44  2685.778341  1526.252453  313.391   5828.324   
+France           35  2001.857143  12.466763  1970  2020           35  3045.145057  1468.282187  192.143   5468.418   
+Germany          50  1995.080000  15.005904  1970  2020           50  2667.280200  1873.356162  252.311   6938.983   
+Great Britain    43  1998.627907  13.273718  1970  2020           43  2034.192465  1433.797586  123.993   5018.700   
+Japan            51  1995.000000  14.866069  1970  2020           51  1860.257902  1467.225806  150.437   4665.641   
+USA              51  1995.000000  14.866069  1970  2020           51  4388.570529  3386.309322  326.961  11859.179   
+
+              Life_Expectancy                                   
+                        count       mean       std   min   max  
+Country                                                         
+Canada                     44  78.706818  2.502222  72.8  82.2  
+France                     35  79.565714  2.862120  72.2  82.9  
+Germany                    50  76.726000  3.473915  70.6  81.3  
+Great Britain              43  77.620930  2.827548  71.9  81.4  
+Japan                      51  79.554902  3.547242  72.0  84.7  
+USA                        51  75.843137  2.336258  70.9  78.9  
+2026-06-07 20:31:19 | INFO | EDA | 
+Stacked view - easier to read in logs:
+2026-06-07 20:31:19 | DEBUG | EDA | 
+                               count         mean          std       min        max
+Country                                                                            
+Canada        Year                44  1998.318182    13.183451  1971.000   2020.000
+              Spending_USD        44  2685.778341  1526.252453   313.391   5828.324
+              Life_Expectancy     44    78.706818     2.502222    72.800     82.200
+France        Year                35  2001.857143    12.466763  1970.000   2020.000
+              Spending_USD        35  3045.145057  1468.282187   192.143   5468.418
+              Life_Expectancy     35    79.565714     2.862120    72.200     82.900
+Germany       Year                50  1995.080000    15.005904  1970.000   2020.000
+              Spending_USD        50  2667.280200  1873.356162   252.311   6938.983
+              Life_Expectancy     50    76.726000     3.473915    70.600     81.300
+Great Britain Year                43  1998.627907    13.273718  1970.000   2020.000
+              Spending_USD        43  2034.192465  1433.797586   123.993   5018.700
+              Life_Expectancy     43    77.620930     2.827548    71.900     81.400
+Japan         Year                51  1995.000000    14.866069  1970.000   2020.000
+              Spending_USD        51  1860.257902  1467.225806   150.437   4665.641
+              Life_Expectancy     51    79.554902     3.547242    72.000     84.700
+USA           Year                51  1995.000000    14.866069  1970.000   2020.000
+              Spending_USD        51  4388.570529  3386.309322   326.961  11859.179
+              Life_Expectancy     51    75.843137     2.336258    70.900     78.900
+2026-06-07 20:31:19 | INFO | EDA | --- Section 7: Correlation matrix for numeric columns ---
+2026-06-07 20:31:19 | INFO | EDA | Computing correlation matrix for numeric columns
+2026-06-07 20:31:19 | INFO | EDA | 
+Correlation matrix:
+2026-06-07 20:31:19 | DEBUG | EDA | 
+                     Year  Spending_USD  Life_Expectancy
+Year             1.000000      0.826273         0.902175
+Spending_USD     0.826273      1.000000         0.579430
+Life_Expectancy  0.902175      0.579430         1.000000
+2026-06-07 20:31:19 | INFO | EDA | ---------Visualize Correlation Matrix as a Heatmap---------------
+2026-06-07 20:31:19 | INFO | EDA | 
+CUSTOM: Update these notes and use Markdown cells to narrate and tell the story as you explore. For example:
+
+Interpretation:
+
+ - Values close to 1 (dark red) = strong positive correlation (both increase together)
+ - Values close to -1 (dark blue) = strong negative correlation (one increases, other decreases)
+ - Values close to 0 (white) = little or no linear relationship
+ - The diagonal is always 1 (each variable correlates perfectly with itself)
+
+From this heatmap, we can see that flipper_length_mm and body_mass_g show strong positive correlation (~0.87).
+
+2026-06-07 20:31:19 | INFO | EDA | --- Section 8: Charts ---
+2026-06-07 20:31:19 | INFO | EDA | ---- Creating Scatter Plot to see Relationships ------
+2026-06-07 20:31:19 | INFO | EDA | ----   Use clean dataframe ---------------------------
+2026-06-07 20:31:19 | INFO | EDA | ----   Set x to Spending_USD -----------------------
+2026-06-07 20:31:19 | INFO | EDA | ----   Set y to Life Expectancy --------------------------
+2026-06-07 20:31:19 | INFO | EDA | ----   Set the hue (color mapping) to the group column --
+2026-06-07 20:31:19 | INFO | EDA | ------ Creating Box Plot to see Distribution: ---------
+2026-06-07 20:31:19 | INFO | EDA | ------   Use clean dataframe --------------------------
+2026-06-07 20:31:19 | INFO | EDA | ------   Set x to the group column --------------------
+2026-06-07 20:31:19 | INFO | EDA | ------   Set y to Spending_USD ------------------
+2026-06-07 20:31:19 | INFO | EDA | ------ Creating Another Chart with Linear Regression Line ---------
+2026-06-07 20:33:01 | INFO | EDA | --- Section 9: Summary and next steps ---
+2026-06-07 20:33:01 | INFO | EDA | ========================
+2026-06-07 20:33:01 | INFO | EDA | SUMMARY
+2026-06-07 20:33:01 | INFO | EDA | ========================
+2026-06-07 20:33:01 | INFO | EDA | Dataset: healthexp
+2026-06-07 20:33:01 | INFO | EDA | Original rows: 274
+2026-06-07 20:33:01 | INFO | EDA | Clean rows:    274
+2026-06-07 20:33:01 | INFO | EDA | Groups found in Country: ['Canada', 'France', 'Germany', 'Great Britain', 'Japan', 'USA']
+2026-06-07 20:33:01 | INFO | EDA | Strongest correlation: 
+2026-06-07 20:33:01 | INFO | EDA |   Spending_USD and Life_Expectancy show a strong positive correlation (~0.8)
+2026-06-07 20:33:01 | INFO | EDA | Suggested next step: 
+2026-06-07 20:33:01 | INFO | EDA |   Model Spending_USD ~ Life_Expectancy with linear regression
+2026-06-07 20:33:01 | INFO | EDA | ----- in a script, call plt.show() once at the end to display all charts -----
+2026-06-07 20:33:01 | INFO | EDA | ----- in a script, close the chart windows (with the close button) to continue  -----
+2026-06-07 20:33:01 | INFO | EDA | EDA workflow complete
+2026-06-07 20:33:01 | INFO | EDA | IMPORTANT: This script creates chart windows.
+2026-06-07 20:33:01 | INFO | EDA | Close any chart windows and terminate this process with CTRL+c as needed.
+2026-06-07 20:33:01 | INFO | EDA | ========================
+2026-06-07 20:33:01 | INFO | EDA | Executed successfully!
+2026-06-07 20:33:01 | INFO | EDA | ========================
+2026-06-07 20:55:17 | INFO | EDA | === RUN START ===
+2026-06-07 20:55:17 | INFO | EDA | project=EDA
+2026-06-07 20:55:17 | INFO | EDA | repo_dir=datafun-04-notebooks
+2026-06-07 20:55:17 | INFO | EDA | python=3.14.3
+2026-06-07 20:55:17 | INFO | EDA | os=Windows 11
+2026-06-07 20:55:17 | INFO | EDA | shell=powershell
+2026-06-07 20:55:17 | INFO | EDA | cwd=.
+2026-06-07 20:55:17 | INFO | EDA | github_actions=False
+2026-06-07 20:55:17 | INFO | EDA | ========================
+2026-06-07 20:55:17 | INFO | EDA | START main()
+2026-06-07 20:55:17 | INFO | EDA | ========================
+2026-06-07 20:55:17 | INFO | EDA | --- Section 2: Load dataset: healthexp ---
+2026-06-07 20:55:17 | INFO | EDA | Loading dataset: healthexp
+2026-06-07 20:55:17 | INFO | EDA | Loaded: 274 rows, 4 columns
+2026-06-07 20:55:17 | INFO | EDA | --- Section 3: Inspect shape and basic structure ---
+2026-06-07 20:55:17 | INFO | EDA | Previewing first few rows of the dataset
+2026-06-07 20:55:17 | DEBUG | EDA | 
+   Year        Country  Spending_USD  Life_Expectancy
+0  1970        Germany       252.311             70.6
+1  1970         France       192.143             72.2
+2  1970  Great Britain       123.993             71.9
+3  1970          Japan       150.437             72.0
+4  1970            USA       326.961             70.9
+2026-06-07 20:55:17 | INFO | EDA | Column names
+2026-06-07 20:55:17 | DEBUG | EDA | ['Year', 'Country', 'Spending_USD', 'Life_Expectancy']
+2026-06-07 20:55:17 | INFO | EDA | DataFrame info (types and non-null counts)
+2026-06-07 20:55:17 | INFO | EDA | Dataset shape: 274 rows, 4 columns
+2026-06-07 20:55:17 | INFO | EDA | --- Section 4: Create Data Dictionary and Check Data Quality ---
+2026-06-07 20:55:17 | INFO | EDA | Building starter data dictionary
+2026-06-07 20:55:17 | DEBUG | EDA | 
+            column    dtype  missing_count  missing_pct
+0             Year    int64              0          0.0
+1          Country      str              0          0.0
+2     Spending_USD  float64              0          0.0
+3  Life_Expectancy  float64              0          0.0
+2026-06-07 20:55:17 | INFO | EDA | Missing values per column:
+2026-06-07 20:55:17 | INFO | EDA | 
+Year               0
+Country            0
+Spending_USD       0
+Life_Expectancy    0
+dtype: int64
+2026-06-07 20:55:17 | INFO | EDA | Checking missing values per column
+2026-06-07 20:55:17 | DEBUG | EDA | 
+Year               0
+Country            0
+Spending_USD       0
+Life_Expectancy    0
+dtype: int64
+2026-06-07 20:55:17 | INFO | EDA | Duplicate rows detected: 0
+2026-06-07 20:55:17 | INFO | EDA | Call describe() for numeric columns
+2026-06-07 20:55:17 | DEBUG | EDA | 
+              Year  Spending_USD  Life_Expectancy
+count   274.000000    274.000000       274.000000
+mean   1996.992701   2789.338905        77.909489
+std      14.180933   2194.939785         3.276263
+min    1970.000000    123.993000        70.600000
+25%    1985.250000   1038.357000        75.525000
+50%    1998.000000   2295.578000        78.100000
+75%    2009.000000   4055.610000        80.575000
+max    2020.000000  11859.179000        84.700000
+
+2026-06-07 20:55:17 | INFO | EDA | --- Section 5: Create a cleaned view for EDA ---
+2026-06-07 20:55:17 | INFO | EDA | Creating cleaned view for EDA (dropping rows with key missing values)
+2026-06-07 20:55:17 | DEBUG | EDA | Columns required to be non-missing: ['Year', 'Spending_USD', 'Life_Expectancy', 'Country']
+2026-06-07 20:55:17 | INFO | EDA | Original rows: 274
+2026-06-07 20:55:17 | INFO | EDA | Clean rows:    274
+2026-06-07 20:55:17 | INFO | EDA | Rows dropped:  0
+2026-06-07 20:55:17 | INFO | EDA | --- Section 6: Descriptive statistics for numeric columns ---
+2026-06-07 20:55:17 | INFO | EDA | --------------- Manual statistics ---------------
+2026-06-07 20:55:17 | DEBUG | EDA | Health Expenditure Statistics (using numpy):
+2026-06-07 20:55:17 | DEBUG | EDA |   Mean: 2789.34 USD
+2026-06-07 20:55:17 | DEBUG | EDA |   Std Dev: 2190.93 USD
+2026-06-07 20:55:17 | DEBUG | EDA |   Min: 123.99 USD
+2026-06-07 20:55:17 | DEBUG | EDA |   Max: 11859.18 USD
+2026-06-07 20:55:17 | DEBUG | EDA |   Range: 11735.19 USD
+2026-06-07 20:55:17 | INFO | EDA | --------------- Using pandas describe() method ---------------
+2026-06-07 20:55:17 | INFO | EDA | Computing overall descriptive statistics
+2026-06-07 20:55:17 | DEBUG | EDA | 
+                 count         mean          std       min       25%       50%       75%        max
+Year             274.0  1996.992701    14.180933  1970.000  1985.250  1998.000  2009.000   2020.000
+Spending_USD     274.0  2789.338905  2194.939785   123.993  1038.357  2295.578  4055.610  11859.179
+Life_Expectancy  274.0    77.909489     3.276263    70.600    75.525    78.100    80.575     84.700
+2026-06-07 20:55:17 | INFO | EDA | --------------- Using pandas groupby() and agg() ---------------
+2026-06-07 20:55:17 | INFO | EDA | Computing descriptive statistics by group
+2026-06-07 20:55:17 | DEBUG | EDA | 
+               Year                                     Spending_USD                                                \
+              count         mean        std   min   max        count         mean          std      min        max   
+Country                                                                                                              
+Canada           44  1998.318182  13.183451  1971  2020           44  2685.778341  1526.252453  313.391   5828.324   
+France           35  2001.857143  12.466763  1970  2020           35  3045.145057  1468.282187  192.143   5468.418   
+Germany          50  1995.080000  15.005904  1970  2020           50  2667.280200  1873.356162  252.311   6938.983   
+Great Britain    43  1998.627907  13.273718  1970  2020           43  2034.192465  1433.797586  123.993   5018.700   
+Japan            51  1995.000000  14.866069  1970  2020           51  1860.257902  1467.225806  150.437   4665.641   
+USA              51  1995.000000  14.866069  1970  2020           51  4388.570529  3386.309322  326.961  11859.179   
+
+              Life_Expectancy                                   
+                        count       mean       std   min   max  
+Country                                                         
+Canada                     44  78.706818  2.502222  72.8  82.2  
+France                     35  79.565714  2.862120  72.2  82.9  
+Germany                    50  76.726000  3.473915  70.6  81.3  
+Great Britain              43  77.620930  2.827548  71.9  81.4  
+Japan                      51  79.554902  3.547242  72.0  84.7  
+USA                        51  75.843137  2.336258  70.9  78.9  
+2026-06-07 20:55:17 | INFO | EDA | 
+Stacked view - easier to read in logs:
+2026-06-07 20:55:17 | DEBUG | EDA | 
+                               count         mean          std       min        max
+Country                                                                            
+Canada        Year                44  1998.318182    13.183451  1971.000   2020.000
+              Spending_USD        44  2685.778341  1526.252453   313.391   5828.324
+              Life_Expectancy     44    78.706818     2.502222    72.800     82.200
+France        Year                35  2001.857143    12.466763  1970.000   2020.000
+              Spending_USD        35  3045.145057  1468.282187   192.143   5468.418
+              Life_Expectancy     35    79.565714     2.862120    72.200     82.900
+Germany       Year                50  1995.080000    15.005904  1970.000   2020.000
+              Spending_USD        50  2667.280200  1873.356162   252.311   6938.983
+              Life_Expectancy     50    76.726000     3.473915    70.600     81.300
+Great Britain Year                43  1998.627907    13.273718  1970.000   2020.000
+              Spending_USD        43  2034.192465  1433.797586   123.993   5018.700
+              Life_Expectancy     43    77.620930     2.827548    71.900     81.400
+Japan         Year                51  1995.000000    14.866069  1970.000   2020.000
+              Spending_USD        51  1860.257902  1467.225806   150.437   4665.641
+              Life_Expectancy     51    79.554902     3.547242    72.000     84.700
+USA           Year                51  1995.000000    14.866069  1970.000   2020.000
+              Spending_USD        51  4388.570529  3386.309322   326.961  11859.179
+              Life_Expectancy     51    75.843137     2.336258    70.900     78.900
+2026-06-07 20:55:17 | INFO | EDA | --- Section 7: Correlation matrix for numeric columns ---
+2026-06-07 20:55:17 | INFO | EDA | Computing correlation matrix for numeric columns
+2026-06-07 20:55:17 | INFO | EDA | 
+Correlation matrix:
+2026-06-07 20:55:17 | DEBUG | EDA | 
+                     Year  Spending_USD  Life_Expectancy
+Year             1.000000      0.826273         0.902175
+Spending_USD     0.826273      1.000000         0.579430
+Life_Expectancy  0.902175      0.579430         1.000000
+2026-06-07 20:55:17 | INFO | EDA | ---------Visualize Correlation Matrix as a Heatmap---------------
+2026-06-07 20:55:17 | INFO | EDA | 
+CUSTOM: Update these notes and use Markdown cells to narrate and tell the story as you explore. For example:
+
+Interpretation:
+
+ - Values close to 1 (dark red) = strong positive correlation (both increase together)
+ - Values close to -1 (dark blue) = strong negative correlation (one increases, other decreases)
+ - Values close to 0 (white) = little or no linear relationship
+ - The diagonal is always 1 (each variable correlates perfectly with itself)
+
+From this heatmap, we can see that flipper_length_mm and body_mass_g show strong positive correlation (~0.87).
+
+2026-06-07 20:55:17 | INFO | EDA | --- Section 8: Charts ---
+2026-06-07 20:55:17 | INFO | EDA | ---- Creating Scatter Plot to see Relationships ------
+2026-06-07 20:55:17 | INFO | EDA | ----   Use clean dataframe ---------------------------
+2026-06-07 20:55:17 | INFO | EDA | ----   Set x to Spending_USD -----------------------
+2026-06-07 20:55:17 | INFO | EDA | ----   Set y to Life Expectancy --------------------------
+2026-06-07 20:55:17 | INFO | EDA | ----   Set the hue (color mapping) to the group column --
+2026-06-07 20:55:17 | INFO | EDA | ------ Creating Box Plot to see Distribution: ---------
+2026-06-07 20:55:17 | INFO | EDA | ------   Use clean dataframe --------------------------
+2026-06-07 20:55:17 | INFO | EDA | ------   Set x to the group column --------------------
+2026-06-07 20:55:17 | INFO | EDA | ------   Set y to Spending_USD ------------------
+2026-06-07 20:55:17 | INFO | EDA | ------ Creating Another Chart with Linear Regression Line ---------
+2026-06-07 20:56:33 | INFO | EDA | --- Section 9: Summary and next steps ---
+2026-06-07 20:56:33 | INFO | EDA | ========================
+2026-06-07 20:56:33 | INFO | EDA | SUMMARY
+2026-06-07 20:56:33 | INFO | EDA | ========================
+2026-06-07 20:56:33 | INFO | EDA | Dataset: healthexp
+2026-06-07 20:56:33 | INFO | EDA | Original rows: 274
+2026-06-07 20:56:33 | INFO | EDA | Clean rows:    274
+2026-06-07 20:56:33 | INFO | EDA | Groups found in Country: ['Canada', 'France', 'Germany', 'Great Britain', 'Japan', 'USA']
+2026-06-07 20:56:33 | INFO | EDA | Strongest correlation: 
+2026-06-07 20:56:33 | INFO | EDA |   Spending_USD and Life_Expectancy show a strong positive correlation (~0.8)
+2026-06-07 20:56:33 | INFO | EDA | Suggested next step: 
+2026-06-07 20:56:33 | INFO | EDA |   Model Spending_USD ~ Life_Expectancy with linear regression
+2026-06-07 20:56:33 | INFO | EDA | ----- in a script, call plt.show() once at the end to display all charts -----
+2026-06-07 20:56:33 | INFO | EDA | ----- in a script, close the chart windows (with the close button) to continue  -----
+2026-06-07 20:56:33 | INFO | EDA | EDA workflow complete
+2026-06-07 20:56:33 | INFO | EDA | IMPORTANT: This script creates chart windows.
+2026-06-07 20:56:33 | INFO | EDA | Close any chart windows and terminate this process with CTRL+c as needed.
+2026-06-07 20:56:33 | INFO | EDA | ========================
+2026-06-07 20:56:33 | INFO | EDA | Executed successfully!
+2026-06-07 20:56:33 | INFO | EDA | ========================
+2026-06-07 20:59:49 | INFO | EDA | === RUN START ===
+2026-06-07 20:59:49 | INFO | EDA | project=EDA
+2026-06-07 20:59:49 | INFO | EDA | repo_dir=datafun-04-notebooks
+2026-06-07 20:59:49 | INFO | EDA | python=3.14.3
+2026-06-07 20:59:49 | INFO | EDA | os=Windows 11
+2026-06-07 20:59:49 | INFO | EDA | shell=powershell
+2026-06-07 20:59:49 | INFO | EDA | cwd=.
+2026-06-07 20:59:49 | INFO | EDA | github_actions=False
+2026-06-07 20:59:49 | INFO | EDA | ========================
+2026-06-07 20:59:49 | INFO | EDA | START main()
+2026-06-07 20:59:49 | INFO | EDA | ========================
+2026-06-07 20:59:49 | INFO | EDA | --- Section 2: Load dataset: healthexp ---
+2026-06-07 20:59:49 | INFO | EDA | Loading dataset: healthexp
+2026-06-07 20:59:49 | INFO | EDA | Loaded: 274 rows, 4 columns
+2026-06-07 20:59:49 | INFO | EDA | --- Section 3: Inspect shape and basic structure ---
+2026-06-07 20:59:49 | INFO | EDA | Previewing first few rows of the dataset
+2026-06-07 20:59:49 | DEBUG | EDA | 
+   Year        Country  Spending_USD  Life_Expectancy
+0  1970        Germany       252.311             70.6
+1  1970         France       192.143             72.2
+2  1970  Great Britain       123.993             71.9
+3  1970          Japan       150.437             72.0
+4  1970            USA       326.961             70.9
+2026-06-07 20:59:49 | INFO | EDA | Column names
+2026-06-07 20:59:49 | DEBUG | EDA | ['Year', 'Country', 'Spending_USD', 'Life_Expectancy']
+2026-06-07 20:59:49 | INFO | EDA | DataFrame info (types and non-null counts)
+2026-06-07 20:59:49 | INFO | EDA | Dataset shape: 274 rows, 4 columns
+2026-06-07 20:59:49 | INFO | EDA | --- Section 4: Create Data Dictionary and Check Data Quality ---
+2026-06-07 20:59:49 | INFO | EDA | Building starter data dictionary
+2026-06-07 20:59:49 | DEBUG | EDA | 
+            column    dtype  missing_count  missing_pct
+0             Year    int64              0          0.0
+1          Country      str              0          0.0
+2     Spending_USD  float64              0          0.0
+3  Life_Expectancy  float64              0          0.0
+2026-06-07 20:59:49 | INFO | EDA | Missing values per column:
+2026-06-07 20:59:49 | INFO | EDA | 
+Year               0
+Country            0
+Spending_USD       0
+Life_Expectancy    0
+dtype: int64
+2026-06-07 20:59:49 | INFO | EDA | Checking missing values per column
+2026-06-07 20:59:49 | DEBUG | EDA | 
+Year               0
+Country            0
+Spending_USD       0
+Life_Expectancy    0
+dtype: int64
+2026-06-07 20:59:49 | INFO | EDA | Duplicate rows detected: 0
+2026-06-07 20:59:49 | INFO | EDA | Call describe() for numeric columns
+2026-06-07 20:59:49 | DEBUG | EDA | 
+              Year  Spending_USD  Life_Expectancy
+count   274.000000    274.000000       274.000000
+mean   1996.992701   2789.338905        77.909489
+std      14.180933   2194.939785         3.276263
+min    1970.000000    123.993000        70.600000
+25%    1985.250000   1038.357000        75.525000
+50%    1998.000000   2295.578000        78.100000
+75%    2009.000000   4055.610000        80.575000
+max    2020.000000  11859.179000        84.700000
+
+2026-06-07 20:59:49 | INFO | EDA | --- Section 5: Create a cleaned view for EDA ---
+2026-06-07 20:59:49 | INFO | EDA | Creating cleaned view for EDA (dropping rows with key missing values)
+2026-06-07 20:59:49 | DEBUG | EDA | Columns required to be non-missing: ['Year', 'Spending_USD', 'Life_Expectancy', 'Country']
+2026-06-07 20:59:49 | INFO | EDA | Original rows: 274
+2026-06-07 20:59:49 | INFO | EDA | Clean rows:    274
+2026-06-07 20:59:49 | INFO | EDA | Rows dropped:  0
+2026-06-07 20:59:49 | INFO | EDA | --- Section 6: Descriptive statistics for numeric columns ---
+2026-06-07 20:59:49 | INFO | EDA | --------------- Manual statistics ---------------
+2026-06-07 20:59:49 | DEBUG | EDA | Health Expenditure Statistics (using numpy):
+2026-06-07 20:59:49 | DEBUG | EDA |   Mean: 2789.34 USD
+2026-06-07 20:59:49 | DEBUG | EDA |   Std Dev: 2190.93 USD
+2026-06-07 20:59:49 | DEBUG | EDA |   Min: 123.99 USD
+2026-06-07 20:59:49 | DEBUG | EDA |   Max: 11859.18 USD
+2026-06-07 20:59:49 | DEBUG | EDA |   Range: 11735.19 USD
+2026-06-07 20:59:49 | INFO | EDA | --------------- Using pandas describe() method ---------------
+2026-06-07 20:59:49 | INFO | EDA | Computing overall descriptive statistics
+2026-06-07 20:59:49 | DEBUG | EDA | 
+                 count         mean          std       min       25%       50%       75%        max
+Year             274.0  1996.992701    14.180933  1970.000  1985.250  1998.000  2009.000   2020.000
+Spending_USD     274.0  2789.338905  2194.939785   123.993  1038.357  2295.578  4055.610  11859.179
+Life_Expectancy  274.0    77.909489     3.276263    70.600    75.525    78.100    80.575     84.700
+2026-06-07 20:59:49 | INFO | EDA | --------------- Using pandas groupby() and agg() ---------------
+2026-06-07 20:59:49 | INFO | EDA | Computing descriptive statistics by group
+2026-06-07 20:59:49 | DEBUG | EDA | 
+               Year                                     Spending_USD                                                \
+              count         mean        std   min   max        count         mean          std      min        max   
+Country                                                                                                              
+Canada           44  1998.318182  13.183451  1971  2020           44  2685.778341  1526.252453  313.391   5828.324   
+France           35  2001.857143  12.466763  1970  2020           35  3045.145057  1468.282187  192.143   5468.418   
+Germany          50  1995.080000  15.005904  1970  2020           50  2667.280200  1873.356162  252.311   6938.983   
+Great Britain    43  1998.627907  13.273718  1970  2020           43  2034.192465  1433.797586  123.993   5018.700   
+Japan            51  1995.000000  14.866069  1970  2020           51  1860.257902  1467.225806  150.437   4665.641   
+USA              51  1995.000000  14.866069  1970  2020           51  4388.570529  3386.309322  326.961  11859.179   
+
+              Life_Expectancy                                   
+                        count       mean       std   min   max  
+Country                                                         
+Canada                     44  78.706818  2.502222  72.8  82.2  
+France                     35  79.565714  2.862120  72.2  82.9  
+Germany                    50  76.726000  3.473915  70.6  81.3  
+Great Britain              43  77.620930  2.827548  71.9  81.4  
+Japan                      51  79.554902  3.547242  72.0  84.7  
+USA                        51  75.843137  2.336258  70.9  78.9  
+2026-06-07 20:59:49 | INFO | EDA | 
+Stacked view - easier to read in logs:
+2026-06-07 20:59:49 | DEBUG | EDA | 
+                               count         mean          std       min        max
+Country                                                                            
+Canada        Year                44  1998.318182    13.183451  1971.000   2020.000
+              Spending_USD        44  2685.778341  1526.252453   313.391   5828.324
+              Life_Expectancy     44    78.706818     2.502222    72.800     82.200
+France        Year                35  2001.857143    12.466763  1970.000   2020.000
+              Spending_USD        35  3045.145057  1468.282187   192.143   5468.418
+              Life_Expectancy     35    79.565714     2.862120    72.200     82.900
+Germany       Year                50  1995.080000    15.005904  1970.000   2020.000
+              Spending_USD        50  2667.280200  1873.356162   252.311   6938.983
+              Life_Expectancy     50    76.726000     3.473915    70.600     81.300
+Great Britain Year                43  1998.627907    13.273718  1970.000   2020.000
+              Spending_USD        43  2034.192465  1433.797586   123.993   5018.700
+              Life_Expectancy     43    77.620930     2.827548    71.900     81.400
+Japan         Year                51  1995.000000    14.866069  1970.000   2020.000
+              Spending_USD        51  1860.257902  1467.225806   150.437   4665.641
+              Life_Expectancy     51    79.554902     3.547242    72.000     84.700
+USA           Year                51  1995.000000    14.866069  1970.000   2020.000
+              Spending_USD        51  4388.570529  3386.309322   326.961  11859.179
+              Life_Expectancy     51    75.843137     2.336258    70.900     78.900
+2026-06-07 20:59:49 | INFO | EDA | --- Section 7: Correlation matrix for numeric columns ---
+2026-06-07 20:59:49 | INFO | EDA | Computing correlation matrix for numeric columns
+2026-06-07 20:59:49 | INFO | EDA | 
+Correlation matrix:
+2026-06-07 20:59:49 | DEBUG | EDA | 
+                     Year  Spending_USD  Life_Expectancy
+Year             1.000000      0.826273         0.902175
+Spending_USD     0.826273      1.000000         0.579430
+Life_Expectancy  0.902175      0.579430         1.000000
+2026-06-07 20:59:49 | INFO | EDA | ---------Visualize Correlation Matrix as a Heatmap---------------
+2026-06-07 20:59:50 | INFO | EDA | 
+CUSTOM: Update these notes and use Markdown cells to narrate and tell the story as you explore. For example:
+
+Interpretation:
+
+ - Values close to 1 (dark red) = strong positive correlation (both increase together)
+ - Values close to -1 (dark blue) = strong negative correlation (one increases, other decreases)
+ - Values close to 0 (white) = little or no linear relationship
+ - The diagonal is always 1 (each variable correlates perfectly with itself)
+
+From this heatmap, we can see that flipper_length_mm and body_mass_g show strong positive correlation (~0.87).
+
+2026-06-07 20:59:50 | INFO | EDA | --- Section 8: Charts ---
+2026-06-07 20:59:50 | INFO | EDA | ---- Creating Scatter Plot to see Relationships ------
+2026-06-07 20:59:50 | INFO | EDA | ----   Use clean dataframe ---------------------------
+2026-06-07 20:59:50 | INFO | EDA | ----   Set x to Spending_USD -----------------------
+2026-06-07 20:59:50 | INFO | EDA | ----   Set y to Life Expectancy --------------------------
+2026-06-07 20:59:50 | INFO | EDA | ----   Set the hue (color mapping) to the group column --
+2026-06-07 20:59:50 | INFO | EDA | ------ Creating Box Plot to see Distribution: ---------
+2026-06-07 20:59:50 | INFO | EDA | ------   Use clean dataframe --------------------------
+2026-06-07 20:59:50 | INFO | EDA | ------   Set x to the group column --------------------
+2026-06-07 20:59:50 | INFO | EDA | ------   Set y to Spending_USD ------------------
+2026-06-07 20:59:50 | INFO | EDA | ------ Creating Another Chart with Linear Regression Line ---------
+2026-06-07 20:59:55 | INFO | EDA | --- Section 9: Summary and next steps ---
+2026-06-07 20:59:55 | INFO | EDA | ========================
+2026-06-07 20:59:55 | INFO | EDA | SUMMARY
+2026-06-07 20:59:55 | INFO | EDA | ========================
+2026-06-07 20:59:55 | INFO | EDA | Dataset: healthexp
+2026-06-07 20:59:55 | INFO | EDA | Original rows: 274
+2026-06-07 20:59:55 | INFO | EDA | Clean rows:    274
+2026-06-07 20:59:55 | INFO | EDA | Groups found in Country: ['Canada', 'France', 'Germany', 'Great Britain', 'Japan', 'USA']
+2026-06-07 20:59:55 | INFO | EDA | Strongest correlation: 
+2026-06-07 20:59:55 | INFO | EDA |   Spending_USD and Life_Expectancy show a strong positive correlation (~0.8)
+2026-06-07 20:59:55 | INFO | EDA | Suggested next step: 
+2026-06-07 20:59:55 | INFO | EDA |   Model Spending_USD ~ Life_Expectancy with linear regression
+2026-06-07 20:59:55 | INFO | EDA | ----- in a script, call plt.show() once at the end to display all charts -----
+2026-06-07 20:59:55 | INFO | EDA | ----- in a script, close the chart windows (with the close button) to continue  -----
+2026-06-07 20:59:55 | INFO | EDA | EDA workflow complete
+2026-06-07 20:59:55 | INFO | EDA | IMPORTANT: This script creates chart windows.
+2026-06-07 20:59:55 | INFO | EDA | Close any chart windows and terminate this process with CTRL+c as needed.
+2026-06-07 20:59:55 | INFO | EDA | ========================
+2026-06-07 20:59:55 | INFO | EDA | Executed successfully!
+2026-06-07 20:59:55 | INFO | EDA | ========================

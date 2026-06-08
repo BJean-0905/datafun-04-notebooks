@@ -23,3 +23,35 @@ to get these projects running on your machine.
   - [RESOURCES.md](./module/RESOURCES.md)
   - [seaborn-datasets.md](./module/seaborn-datasets.md)
   - [TROUBLESHOOTING.md](./module/TROUBLESHOOTING.md)
+
+## Custom Project
+
+  This project required a phase 4 modification of the provided data set on penguins
+  as well as a phase 5 custom project, including data regarding healthcare expenses.
+  The goal was to show modification skills to a current project and to develop a new project with a
+  new dataset utilizing the EDA to stage next steps for analysis.
+
+## Dataset
+
+The phase 4 dataset used was the provided dataset on penguins.
+Phase 5 dataset was downloaded from the seaborn github site healthexp.
+The dataset includes columns year, country, spending_USD, and life expectancy.
+
+## Phase 4 Modification
+
+Phase 4 modification included an additional visual using a line graph to show penguins csv
+data linear regression in support of the summary suggestion for next steps.
+A 4th figure was added to the read me file.
+This line graph was both added for visual support and as skill building for phase 5.
+
+## Phase 5 Custom Project
+
+Phase 5 utilized the above described health expense data by year, country, and life expectancy.
+After downloading the dataset, the python project was copied and retitled as well as the notebook.
+Updates to code in the python file and notebook were made to ensure the output matched the
+current dataset and ran successfully.
+Figures show most countries have similar healthcare expenses with higher life expectancies.
+Germany and the USA are leading with the highest healthcare expense and lowest life expectancy by year,
+with that correlation only becoming more apparent over the years.
+
+![Health Expenditure vs Life Expectancy (by country)]("docs/images/Healthexp_figure2.png")

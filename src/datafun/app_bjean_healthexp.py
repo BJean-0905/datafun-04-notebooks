@@ -456,12 +456,12 @@ def make_plots(df_clean: pd.DataFrame) -> None:
     # Use a scatterplot() to visualize relationships between two variables (x vs y)
     scatter_plt: Axes = sns.scatterplot(
         data=df_clean,
-        x="health_expenditure",
-        y="Life Expectancy",
+        x="Spending_USD",
+        y="Life_Expectancy",
         hue=GROUP_COL,
     )
-    scatter_plt.set_xlabel("Health Expenditure (USD)")
-    scatter_plt.set_ylabel("Life Expectancy")
+    scatter_plt.set_xlabel("Spending_USD")
+    scatter_plt.set_ylabel("Life_Expectancy")
     scatter_plt.set_title("Health Expenditure vs Life Expectancy (by country)")
 
     # IN NOTEBOOK: SHOW AS YOU GO
